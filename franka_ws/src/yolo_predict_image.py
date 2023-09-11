@@ -1,11 +1,19 @@
 from ultralytics import YOLO
 import cv2
 
-# Load a model
-model = YOLO('yolov8n.pt')  # pretrained YOLOv8n model
+# Load pretrained YOLOv8 model
+model = YOLO('yolov8n.pt')
 
 # Run batched inference on a list of images
-results = model(source='sample_image.jpeg', show=True, save=True, boxes=True)  # return a list of Results objects
+source_images = ['sample_image_1.jpeg', 'sample_image_2.jpeg']
+
+# Return a list of Results objects
+results = model(source=source_images, 
+                # conf=0.8,
+                show=True, 
+                save=True, 
+                boxes=True
+            )
 
 # Process results list
 for result in results:
