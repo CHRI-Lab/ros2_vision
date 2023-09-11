@@ -2,7 +2,7 @@ from ultralytics import YOLO
 import cv2
 
 # Load pretrained YOLOv8 model
-model = YOLO('yolov8n.pt')
+model = YOLO('yolov8s.pt')
 
 # Run batched inference on a list of images
 source_images = ['sample_image_1.jpeg', 'sample_image_2.jpeg']
