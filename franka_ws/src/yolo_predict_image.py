@@ -22,13 +22,20 @@ for result in results:
     keypoints = result.keypoints  # Keypoints object for pose outputs
     probs = result.probs  # Probs object for classification outputs
 
-    con = result.boxes.conf
+    confidences = result.boxes.conf
     class_ids = result.boxes.cls
-    # x1 = int(result['xmin'])
-    # y1 = int(result['ymin'])
-    # x2 = int(result['xmax'])
-    # y2 = int(result['ymax'])
+    box_coordinates = result.boxes.xyxy
 
-    for class_id in class_ids:
+    for i in range(len(class_ids)):
+        class_id = class_ids[i]
+        coordinates = box_coordinates[i]
+
+        x1, y1 = float(coordinates[0]), float(coordinates[1])
+        x2, y2 = float(coordinates[2]), float(coordinates[3])
+
         print("Class:", class_names[int(class_id)])
-    print("\n-----------\n")
+        print("Confidence: {:.2f}".format(float(confidences[i])))
+        print("Top left coordinates: ({:.2f}, {:.2f})".format(x1, y1))
+        print("Bot right coordinates: ({:.2f}, {:.2f})".format(x2, y2))
+        
+        print("\n-----------\n")
