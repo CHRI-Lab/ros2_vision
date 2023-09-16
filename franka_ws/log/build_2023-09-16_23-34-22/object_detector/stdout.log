@@ -1,0 +1,21 @@
+running develop
+running egg_info
+creating object_detector.egg-info
+writing object_detector.egg-info/PKG-INFO
+writing dependency_links to object_detector.egg-info/dependency_links.txt
+writing entry points to object_detector.egg-info/entry_points.txt
+writing requirements to object_detector.egg-info/requires.txt
+writing top-level names to object_detector.egg-info/top_level.txt
+writing manifest file 'object_detector.egg-info/SOURCES.txt'
+reading manifest file 'object_detector.egg-info/SOURCES.txt'
+writing manifest file 'object_detector.egg-info/SOURCES.txt'
+running build_ext
+Creating /home/jackson/AI-RedBack-Vision/franka_ws/install/object_detector/lib/python3.10/site-packages/object-detector.egg-link (link to .)
+
+Installed /home/jackson/AI-RedBack-Vision/franka_ws/build/object_detector
+running install_data
+creating /home/jackson/AI-RedBack-Vision/franka_ws/install/object_detector/share/ament_index
+creating /home/jackson/AI-RedBack-Vision/franka_ws/install/object_detector/share/ament_index/resource_index
+creating /home/jackson/AI-RedBack-Vision/franka_ws/install/object_detector/share/ament_index/resource_index/packages
+copying resource/object_detector -> /home/jackson/AI-RedBack-Vision/franka_ws/install/object_detector/share/ament_index/resource_index/packages
+copying package.xml -> /home/jackson/AI-RedBack-Vision/franka_ws/install/object_detector/share/object_detector
