@@ -57,18 +57,15 @@ class YoloDetectorNode(Node):
                 x2, y2 = float(coordinates[2]), float(coordinates[3])
 
 
-                msg_str = ""
-                msg_str += ("Class:", self.class_names_[int(class_id)])
-                msg_str += ("Confidence: {:.2f}".format(float(confidences[i])))
-                msg_str += "Top left coordinates: ({:.2f}, {:.2f})".format(x1, y1)
-                msg_str += "Bot right coordinates: ({:.2f}, {:.2f})".format(x2, y2)
+                msg_content = ""
+                msg_content += "Class: {}\n".format(self.class_names_[int(class_id)])
+                msg_content += "Confidence: {:.2f}\n".format(float(confidences[i]))
+                msg_content += "Top left coordinates: ({:.2f}, {:.2f})\n".format(x1, y1)
+                msg_content += "Bot right coordinates: ({:.2f}, {:.2f})".format(x2, y2)
 
+                msg_str = String()
+                msg_str.data = msg_content
                 self.yolo_object_pub_.publish(msg=msg_str)
-
-                # print("Class:", self.class_names_[int(class_id)])
-                # print("Confidence: {:.2f}".format(float(confidences[i])))
-                # print("Top left coordinates: ({:.2f}, {:.2f})".format(x1, y1))
-                # print("Bot right coordinates: ({:.2f}, {:.2f})".format(x2, y2))
 
 def main(args=None):
     # Initialise ROS2 communication
@@ -77,6 +74,9 @@ def main(args=None):
     # Create the YOLO detector node
     yolo_node = YoloDetectorNode()
 
+    # Start detecting objects
+    yolo_node.detect_objects()
+    # Publish messages of detected objects
     yolo_node.init_publisher()
     yolo_node.publish_objects_message()
 
