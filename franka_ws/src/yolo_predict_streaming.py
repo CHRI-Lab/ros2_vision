@@ -8,7 +8,7 @@ class_names = model.names
 
 # Define streaming source (e.g. camera dev number)
 # May need to try out for different ports
-camera_dev = '1'
+camera_dev = '0'
 
 # Return a list of Results objects
 results = model(source=camera_dev, 

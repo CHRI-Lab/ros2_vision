@@ -20,6 +20,7 @@ setup(
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
+            "yolo_detector = object_detector.yolo_detector:main",
         ],
     },
 )
