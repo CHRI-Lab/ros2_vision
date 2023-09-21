@@ -1,0 +1,26 @@
+{
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 100,
+  "commit": false,
+  "commitType": "docs",
+  "commitConvention": "angular",
+  "contributors": [
+    {
+      "login": "Tempest371",
+      "name": "Tempest371",
+      "avatar_url": "https://avatars.githubusercontent.com/u/102500895?v=4",
+      "profile": "https://github.com/Tempest371",
+      "contributions": [
+        "code"
+      ]
+    }
+  ],
+  "contributorsPerLine": 7,
+  "skipCi": true,
+  "repoType": "github",
+  "repoHost": "https://github.com",
+  "projectName": "AI-RedBack-Vision",
+  "projectOwner": "COMP90082-2023-SM2"
+}
