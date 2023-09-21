@@ -14,11 +14,8 @@ Branch Naming Convention: user story ID + "feature/bug_fix" + person + descripti
 Created Github repository  
 
 Created CV2.4-feature-jackson-create_yolo_node branch 
-
 Created CV4.1-feature-george-add_openpose_code branch  
-
 Merged  CV2.4-feature-jackson-create_yolo_node branch  
-
 Uploaded README.md  
 
 
