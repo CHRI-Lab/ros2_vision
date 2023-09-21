@@ -1,4 +1,37 @@
 {
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 100,
+  "commit": false,
+  "commitType": "docs",
+  "commitConvention": "angular",
+  "contributors": [
+    {
+      "login": "jackson-hu1279",
+      "name": "jackson-hu1279",
+      "avatar_url": "https://avatars.githubusercontent.com/u/68998854?v=4",
+      "profile": "https://github.com/jackson-hu1279",
+      "contributions": [
+        "code",
+        "doc"
+      ]
+    },
+    {
+      "login": "Tempest371",
+      "name": "Tempest371",
+      "avatar_url": "https://avatars.githubusercontent.com/u/102500895?v=4",
+      "profile": "https://github.com/Tempest371",
+      "contributions": [
+        "code",
+        "doc"
+      ]
+    }
+  ],
+  "contributorsPerLine": 7,
+  "skipCi": true,
+  "repoType": "github",
+  "repoHost": "https://github.com",
   "projectName": "AI-RedBack-Vision",
-  "projectOwner": "jackson-hu1279"
+  "projectOwner": "COMP90082-2023-SM2"
 }
