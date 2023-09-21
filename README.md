@@ -8,7 +8,7 @@ There are two main processes in this repository:
 - Human posture detection (hand gesture, gaze)
 
 ### Naming rules
-Branch Naming Convention: <user_story_id>-<"feature/bug_fix">-<person>-<description>
+Branch Naming Convention: user story ID + "feature/bug_fix" + person + description
 
 ## Sprint2
 Created Github repository
