@@ -17,5 +17,14 @@ Created CV4.1-feature-george-add_openpose_code branch
 Merged  CV2.4-feature-jackson-create_yolo_node branch  
 Uploaded README.md  
 
+## Contributors
 
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+<!-- prettier-ignore-start -->
+<!-- markdownlint-disable -->
+
+<!-- markdownlint-restore -->
+<!-- prettier-ignore-end -->
+
+<!-- ALL-CONTRIBUTORS-LIST:END -->
 
