@@ -7,12 +7,12 @@
 
 ## Prerequisites
 
-CMake GUI: sudo apt-get install cmake-qt-gui  
-Nvidia GPU: Update to latest version  
-CUDA: Download from website: https://developer.nvidia.com/cuda-11-7-1-download-archive  
-cuDNN: Download from website: https://developer.nvidia.com/cudnn  
-Caffe: sudo bash ./scripts/ubuntu/install_deps.sh  
-OpenCV: sudo apt-get install libopencv-dev  
+CMake GUI: sudo apt-get install cmake-qt-gui      
+Nvidia GPU: Update to latest version      
+CUDA: Download from website: https://developer.nvidia.com/cuda-11-7-1-download-archive    
+cuDNN: Download from website: https://developer.nvidia.com/cudnn    
+Caffe: sudo bash ./scripts/ubuntu/install_deps.sh     
+OpenCV: sudo apt-get install libopencv-dev     
 ### Make prerequisites
 - CMake config: sudo apt install protobuf-compiler libgoogle-glog-dev
 - Openpose: sudo apt install libboost-all-dev libhdf5-dev libatlas-base-dev
