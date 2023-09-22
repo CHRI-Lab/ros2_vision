@@ -115,10 +115,9 @@ Details about `yolo_detector` can be found in [docs](./docs/yolo_object_detector
 
 ### Run openpose
 After being built, openpose can be run with the following command:  
-...
- ./build/examples/openpose/openpose.bin  
-...  
-
+```
+./build/examples/openpose/openpose.bin 
+```
 Details about 'openpose' can be found in [docs](./docs/openpose.md)
 
 
