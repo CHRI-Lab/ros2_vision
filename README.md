@@ -63,7 +63,7 @@ ultralytics >= 8.0
 ### Build
 ```
 $ cd franka_ws
-$ colcon build --symlin-install
+$ colcon build --symlink-install
 ```
 
 ### Run yolo_detector node
