@@ -89,6 +89,21 @@ $ cd franka_ws
 $ colcon build --symlink-install
 ```
 
+```
+$ git clone https://github.com/CMU-Perceptual-Computing-Lab/openpose
+$ cd openpose
+$ git submodule update --init --recursive --remote
+$ mkdir build
+$ cd build
+$ cmake-gui ..
+# Click configure, tick BUILD_PYTHON flag, and click configure again. Click generate.
+$ make -j`nproc`
+```
+
+
+
+
+
 ### Run yolo_detector node
 After successfully built, `yolo_detector` ROS2 node can be launched via the following command:
 ```
