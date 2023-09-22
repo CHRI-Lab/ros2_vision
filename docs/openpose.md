@@ -19,3 +19,18 @@
 ### Output:
 --write_video <path_to_video>: Records video to the path specified  
 --write_images <path_to_folder>: Records images in the folder path specified  
+
+
+### Examples:
+
+<p align="center">
+  <img src="./images/openpose_1.png" alt="Hand and face keypoint detection" width="600" />
+</p>
+
+<p align="center">
+  <img src="./images/openpose_1.png" alt="Finger keypoint estimation" width="600" />
+</p>
+
+<p align="center">
+  <img src="./images/openpose_1.png" alt="Sideways face keypoint detection" width="600" />
+</p>
