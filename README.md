@@ -9,8 +9,8 @@ The aim of this repo is to develop the visual components of the AI-RedBack proje
 
 ## ROS2 Nodes
 There are two ROS nodes in this repository:
-- 3D object detection
-- Human posture detection (hand gesture, gaze)
+1. 3D object detection
+2. Human posture detection (hand gesture, gaze)
 
 ## Installation
 <details>
@@ -59,7 +59,23 @@ ultralytics >= 8.0
     
 </details>
 
+## Usage
+### Build
+```
+$ cd franka_ws
+$ colcon build --symlin-install
+```
 
+### Run yolo_detector node
+After successfully built, `yolo_detector` ROS2 node can be launched via the following command:
+```
+ros2 run object_detector yolo_detector
+```
+Details about `yolo_detector` can be found in [docs](./docs/yolo_object_detector.md)
+
+<p align="center">
+  <img src="./docs/images/yolo_detector_running2.jpg" alt="Screenshot of yolo_detector running" width="600" />
+</p>
 
 ## Contributors
 
