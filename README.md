@@ -119,7 +119,7 @@ After being built, openpose can be run with the following command:
 ```
 ./build/examples/openpose/openpose.bin 
 ```
-Details about 'openpose' can be found in [docs](./docs/openpose.md)
+Details about `openpose` can be found in [docs](./docs/openpose.md)
 
 
 
