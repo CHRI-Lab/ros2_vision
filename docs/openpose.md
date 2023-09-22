@@ -25,12 +25,17 @@
 
 <p align="center">
   <img src="./images/openpose_1.png" alt="Hand and face keypoint detection" width="600" />
+  <figcaption>Openpose hand and face keypoint detection</figcaption>
 </p>
+
+
 
 <p align="center">
   <img src="./images/openpose_1.png" alt="Finger keypoint estimation" width="600" />
+  <figcaption>Openpose estimation of finger keypoints</figcaption>
 </p>
 
 <p align="center">
   <img src="./images/openpose_1.png" alt="Sideways face keypoint detection" width="600" />
+  <figcaption>Openpose face keypoint detection (sideview)</figcaption>
 </p>
