@@ -115,6 +115,26 @@ Details about `yolo_detector` can be found in [docs](./docs/yolo_object_detector
   <img src="./docs/images/yolo_detector_running2.jpg" alt="Screenshot of yolo_detector running" width="600" />
 </p>
 
+
+### Run openpose
+After being built, openpose can be run with the following command:  
+...
+ ./build/examples/openpose/openpose.bin
+...
+Flags for openpose:
+...
+--face: Adds facial keypoints
+--hand: Adds hand keypoints
+--video <path_to_video>: Runs openpose on a video
+--image_dir <path_to_folder>: Runs openpose on all images within a folder
+--camera <camera_number>: Selects which camera to run, if --video and --image_dir flags are not used
+--write_video <path_to_video>: Records video to the path specified
+--write_images <path_to_folder>: Records images in the folder path specified
+...
+
+
+
+
 ## Contributors
 
 Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
