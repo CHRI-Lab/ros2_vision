@@ -1,3 +1,4 @@
+# YOLO Detector Node
 ## Overview
 The `yolo_detector` node under the `object_detector` package will try to recognise and extract pixel coordinates of objects. The extracted information will be encapsulated into ROS 2 messages and published to a topic named `/vision/yolo_object`.
 
