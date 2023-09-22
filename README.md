@@ -51,20 +51,30 @@ ultralytics >= 8.0
   <summary>
     Step 4: Install required packages for human posture detection
   </summary>
-  
-- Please use `apt-get`/'apt' to install the following packages
+
+- Please install the following packages
+```
+CUDA: https://developer.nvidia.com/cuda-11-7-1-download-archive
+cuDNN: https://developer.nvidia.com/cudnn
+Caffe prerequisites: Openpose repo -> ./scripts/ubuntu/install_deps.sh
+```
+
+- Please use `apt-get` to install the following packages
 ```
 cmake-qt-gui
 libopencv-dev
-Caffe prerequisites (found in ./scripts/ubuntu/install_deps.sh)
+python3-dev
+```
+
+- Please use `apt` to install the following packages
+```
 protobuf-compiler
 libgoogle-glog-dev
 libboost-all-dev
 libhdf5-dev
 libatlas-base-dev
-python3-dev
-
 ```
+
 - Please use `pip` to install the following packages
 ```
 numpy
