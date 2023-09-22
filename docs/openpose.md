@@ -7,15 +7,15 @@
 
 ## Openpose Flags
 ### Additional keypoints:
---face: Adds facial keypoints
---hand: Adds hand keypoints
+--face: Adds facial keypoints  
+--hand: Adds hand keypoints  
 
 
 ### Input:
---video <path_to_video>: Runs openpose on a video
---image_dir <path_to_folder>: Runs openpose on all images within a folder
---camera <camera_number>: Selects which camera to run, if --video and --image_dir flags are not used
+--video <path_to_video>: Runs openpose on a video  
+--image_dir <path_to_folder>: Runs openpose on all images within a folder  
+--camera <camera_number>: Selects which camera to run, if --video and --image_dir flags are not used  
 
 ### Output:
---write_video <path_to_video>: Records video to the path specified
---write_images <path_to_folder>: Records images in the folder path specified
+--write_video <path_to_video>: Records video to the path specified  
+--write_images <path_to_folder>: Records images in the folder path specified  
