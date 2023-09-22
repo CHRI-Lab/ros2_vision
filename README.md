@@ -52,11 +52,24 @@ ultralytics >= 8.0
     Step 4: Install required packages for human posture detection
   </summary>
   
+- Please use `apt-get`/'apt' to install the following packages
+```
+cmake-qt-gui
+libopencv-dev
+Caffe prerequisites (found in ./scripts/ubuntu/install_deps.sh)
+protobuf-compiler
+libgoogle-glog-dev
+libboost-all-dev
+libhdf5-dev
+libatlas-base-dev
+python3-dev
+
+```
 - Please use `pip` to install the following packages
 ```
-ultralytics >= 8.0
+numpy
+opencv-python
 ```
-    
 </details>
 
 ## Usage
