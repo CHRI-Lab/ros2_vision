@@ -4,25 +4,64 @@
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
 [![All Contributors](https://img.shields.io/badge/all_contributors-2-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
-## About repo
+## Overview
 The aim of this repo is to develop the visual components of the AI-RedBack project. The code should allow the robot to perceive and interpret its surroundings through cameras, enabling it to make informed decisions, through the identification of objects and human gestures.
 
-## Working Process
-There are two main processes in this repository:
+## ROS2 Nodes
+There are two ROS nodes in this repository:
 - 3D object detection
 - Human posture detection (hand gesture, gaze)
 
-### Naming rules
-Branch Naming Convention: user story ID + "feature/bug_fix" + person + description
+## Installation
+<details>
+  <summary>
+    Step 1: Install Ubuntu 22.04 LTS (Jammy Jellyfish)
+  </summary>
+  
+- Head to [Ubuntu release page](https://releases.ubuntu.com/jammy/) and download the “Desktop Image”
+- Can either install via
+  - Bootable USB flash drive
+  - Virtual Machine
+  - WSL
+    
+</details>
 
-## Sprint2
-Created Github repository  
-Created CV2.4-feature-jackson-create_yolo_node branch  
-Created CV4.1-feature-george-add_openpose_code branch  
-Merged  CV2.4-feature-jackson-create_yolo_node branch  
-Uploaded README.md  
+<details>
+  <summary>
+    Step 2: Configure ROS2 environment 
+  </summary>
+  
+- Open the [official documentation](https://docs.ros.org/en/humble/Installation.html) of ROS Humble for installation instructions
+    
+</details>
 
-## Contributors ✨
+<details>
+  <summary>
+    Step 3: Install required packages for object detection
+  </summary>
+  
+- Please use `pip` to install the following packages
+```
+ultralytics >= 8.0
+```
+    
+</details>
+
+<details>
+  <summary>
+    Step 4: Install required packages for human posture detection
+  </summary>
+  
+- Please use `pip` to install the following packages
+```
+ultralytics >= 8.0
+```
+    
+</details>
+
+
+
+## Contributors
 
 Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
 
