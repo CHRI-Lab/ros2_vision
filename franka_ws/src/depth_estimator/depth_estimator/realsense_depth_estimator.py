@@ -4,6 +4,7 @@ import rclpy
 from rclpy.node import Node
 from std_msgs.msg import String
 
+import re
 import cv2
 from realsense_depth import *
 
@@ -25,8 +26,20 @@ class RealsenseDepthEstimatorNode(Node):
         self.object_subscriber_ = self.create_subscription(String, "/vision/yolo_object", self.extract_object_info, 10)
 
     def extract_object_info(self, msg: String):
+        # Read original message content received
         msg_content = msg.data
-        self.get_logger().info("Object info received: " + msg_content)
+        # self.get_logger().info("Object info received: " + msg_content)
+
+        # Extract coordinates floats
+        content_lst = msg_content.strip().split("\n")
+        float_rx = re.compile(r'\d+\.\d+')
+
+        top_left_coordinates = [float(i) for i in float_rx.findall(content_lst[2])]
+        bot_right_coordinates = [float(i) for i in float_rx.findall(content_lst[3])]
+        top_left_coordinates = (top_left_coordinates[0], top_left_coordinates[1])
+        bot_right_coordinates = (bot_right_coordinates[0], bot_right_coordinates[1])
+
+        self.get_logger().info("Object info received: {}, coordinates: [{}, {}]".format(content_lst[0], top_left_coordinates, bot_right_coordinates))
 
     def init_publisher(self):
         # Create a publisher
