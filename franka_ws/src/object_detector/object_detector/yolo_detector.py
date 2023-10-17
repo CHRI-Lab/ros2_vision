@@ -23,7 +23,7 @@ class YoloDetectorNode(Node):
     def detect_objects(self):
         # Define streaming source (e.g. camera dev number)
         # May need to try out for different ports
-        camera_dev = '0'
+        camera_dev = '2'
 
         # Return a list of Results objects
         self.results_ = self.yolo_model_(source=camera_dev, 

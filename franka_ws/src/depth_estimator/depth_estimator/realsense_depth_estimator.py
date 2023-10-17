@@ -3,8 +3,8 @@
 import rclpy
 from rclpy.node import Node
 from std_msgs.msg import String
-from ultralytics import YOLO
 
+import cv2
 from realsense_depth import *
 
 # Define the depth estimator node
@@ -14,11 +14,11 @@ class RealsenseDepthEstimatorNode(Node):
         # Give a node name
         super().__init__("realsense_depth_estimator")
 
+        # Connect RealSense depth camera
+        self.depth_camera = DepthCamera()
+
         self.colour_frame = None
         self.depth_frame = None
-
-    def estimate_distance(self):
-        pass
 
     def subscribe_object_info(self):
         # Create a message subscriber
@@ -38,12 +38,19 @@ class RealsenseDepthEstimatorNode(Node):
     def publish_object_distance_message(self):
         pass
 
+    def estimate_distance(self):
+        pass
+
 def main(args=None):
     # Initialise ROS2 communication
     rclpy.init(args=args)
 
     # Create the depth estimator node
+    # Establish connection to depth camera
     depth_estimator_node = RealsenseDepthEstimatorNode()
+
+    depth_estimator_node.subscribe_object_info()
+
 
 
 
