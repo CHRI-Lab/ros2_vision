@@ -39,7 +39,10 @@ class RealsenseDepthEstimatorNode(Node):
         top_left_coordinates = (top_left_coordinates[0], top_left_coordinates[1])
         bot_right_coordinates = (bot_right_coordinates[0], bot_right_coordinates[1])
 
-        self.get_logger().info("Object info received: {}, coordinates: [{}, {}]".format(content_lst[0], top_left_coordinates, bot_right_coordinates))
+        # self.get_logger().info("Object info received: {}, coordinates: [{}, {}]".format(content_lst[0], top_left_coordinates, bot_right_coordinates))
+
+        # Pass received coordinates to extract corresponding distance
+        self.estimate_distance(top_left_coordinates, bot_right_coordinates)
 
     def init_publisher(self):
         # Create a publisher
@@ -51,8 +54,12 @@ class RealsenseDepthEstimatorNode(Node):
     def publish_object_distance_message(self):
         pass
 
-    def estimate_distance(self):
-        pass
+    def estimate_distance(self, top_left_coordinates, bot_right_coordinates):
+        # Calculate the centre coordinates of objects
+        x = int((top_left_coordinates[0] + bot_right_coordinates[0]) // 2)
+        y = int((top_left_coordinates[1] + bot_right_coordinates[1]) // 2)
+
+        self.get_logger().info("Original: {}, Centre: {}".format([top_left_coordinates, bot_right_coordinates], (x, y)))
 
 def main(args=None):
     # Initialise ROS2 communication
