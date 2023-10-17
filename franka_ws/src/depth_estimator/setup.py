@@ -20,6 +20,7 @@ setup(
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
+            "realsense_depth_estimator = depth_estimator.realsense_depth_estimator:main",
         ],
     },
 )
