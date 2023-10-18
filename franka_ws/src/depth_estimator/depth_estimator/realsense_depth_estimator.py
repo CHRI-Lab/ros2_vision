@@ -60,11 +60,14 @@ class RealsenseDepthEstimatorNode(Node):
         x = int((top_left_coordinates[0] + bot_right_coordinates[0]) // 2)
         y = int((top_left_coordinates[1] + bot_right_coordinates[1]) // 2)
 
-        self.get_logger().info("Original: {}, Centre: {}".format([top_left_coordinates, bot_right_coordinates], (x, y)))
+        # self.get_logger().info("Original: {}, Centre: {}".format([top_left_coordinates, bot_right_coordinates], (x, y)))
 
         res, depth_frame = self.depth_camera.get_frame()
         distance = depth_frame[y, x]  # [Y_pos, X_pos]
-        self.get_logger().info("Object: {}, Distance: {}mm".format(object_class, distance))
+
+        # Ignore invalid estimates
+        if distance != 0:
+            self.get_logger().info("\nObject: {}\nCentre: {}\nDistance: {}mm\n".format(object_class, (x,y), distance))
 
 def main(args=None):
     # Initialise ROS2 communication
