@@ -2,7 +2,6 @@ package.xml
 setup.cfg
 setup.py
 object_detector/__init__.py
-object_detector/realsense_depth.py
 object_detector/yolo_detector.py
 object_detector.egg-info/PKG-INFO
 object_detector.egg-info/SOURCES.txt
