@@ -9,7 +9,7 @@ import subprocess
 class KeypointNode(Node):
     def __init__(self):
         super().__init__("keypoint_node")
-        self.get_logger().info("Hello from ROS2")
+        #self.get_logger().info("Hello from ROS2")
 
 
     def run_api(self):
