@@ -1,0 +1,3 @@
+[console_scripts]
+realsense_depth_estimator = depth_estimator.realsense_depth_estimator:main
+

@@ -1,0 +1,14 @@
+package.xml
+setup.cfg
+setup.py
+depth_estimator/__init__.py
+depth_estimator/realsense_depth.py
+depth_estimator/realsense_depth_estimator.py
+depth_estimator.egg-info/PKG-INFO
+depth_estimator.egg-info/SOURCES.txt
+depth_estimator.egg-info/dependency_links.txt
+depth_estimator.egg-info/entry_points.txt
+depth_estimator.egg-info/requires.txt
+depth_estimator.egg-info/top_level.txt
+depth_estimator.egg-info/zip-safe
+resource/depth_estimator
