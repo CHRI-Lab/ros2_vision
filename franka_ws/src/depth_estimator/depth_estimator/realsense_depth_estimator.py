@@ -15,10 +15,11 @@ class RealsenseDepthEstimatorNode(Node):
         # Give a node name
         super().__init__("realsense_depth_estimator")
 
+        self.object_subscriber_ = None
+        self.depth_distance_pub_ = None
+
         # Connect RealSense depth camera
         self.depth_camera = DepthCamera()
-
-        self.depth_frame = None
 
     def subscribe_object_info(self):
         # Create a message subscriber
@@ -47,13 +48,18 @@ class RealsenseDepthEstimatorNode(Node):
 
     def init_publisher(self):
         # Create a publisher
+        # Specify topic to publish
         self.depth_distance_pub_ = self.create_publisher(String, "/vision/realsense_depth_distance", qos_profile=10)
 
-        # Create a timer, every 1 sec
-        self.timer_ = self.create_timer(1, self.publish_object_distance_message)
+    def publish_object_distance_message(self, object_class, centre_pos, distance):
+        msg_content = ""
+        msg_content += "Object: {}\n".format(object_class)
+        msg_content += "Centre: ({:.2f}, {:.2f})\n".format(centre_pos[0], centre_pos[1])
+        msg_content += "Distance: {:.2f}mm".format(distance)
 
-    def publish_object_distance_message(self):
-        pass
+        msg_str = String()
+        msg_str.data = msg_content
+        self.depth_distance_pub_.publish(msg=msg_str)
 
     def estimate_distance(self, object_class, top_left_coordinates, bot_right_coordinates):
         # Calculate the centre coordinates of objects
@@ -67,7 +73,11 @@ class RealsenseDepthEstimatorNode(Node):
 
         # Ignore invalid estimates
         if distance != 0:
-            self.get_logger().info("\nObject: {}\nCentre: {}\nDistance: {}mm\n".format(object_class, (x,y), distance))
+            # self.get_logger().info("\nObject: {}\nCentre: {}\nDistance: {}mm\n".format(object_class, (x,y), distance))
+            self.publish_object_distance_message(object_class, (x,y), distance)
+
+            # Create a timer, every 1 sec
+            # self.timer_ = self.create_timer(1, self.publish_object_distance_message(object_class, (x,y), distance))
 
 def main(args=None):
     # Initialise ROS2 communication
@@ -77,6 +87,9 @@ def main(args=None):
     # Establish connection to depth camera
     depth_estimator_node = RealsenseDepthEstimatorNode()
 
+    depth_estimator_node.init_publisher()
+
+    # Start receive info about detected objects
     depth_estimator_node.subscribe_object_info()
 
 

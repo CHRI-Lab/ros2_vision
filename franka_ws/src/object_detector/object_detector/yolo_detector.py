@@ -24,7 +24,7 @@ class YoloDetectorNode(Node):
     def detect_objects(self):
         # Define streaming source (e.g. camera dev number)
         # May need to try out for different ports
-        camera_dev = '5'
+        camera_dev = '4'
 
         # Return a list of Results objects
         self.results_ = self.yolo_model_(source=camera_dev, 
@@ -48,8 +48,7 @@ class YoloDetectorNode(Node):
             class_ids = result.boxes.cls
             box_coordinates = result.boxes.xyxy
 
-
-            # print("=============\n")
+            # Publish every detected object
             for i in range(len(class_ids)):
                 class_id = class_ids[i]
                 coordinates = box_coordinates[i]
