@@ -1,11 +1,13 @@
 #!/usr/bin/env python3
 
 import rclpy
+from rclpy.executors import ExternalShutdownException
 from rclpy.node import Node
 from std_msgs.msg import String
 
+import signal
+import sys
 import re
-import cv2
 from realsense_depth import *
 
 # Define the depth estimator node
@@ -14,12 +16,14 @@ class RealsenseDepthEstimatorNode(Node):
     def __init__(self):
         # Give a node name
         super().__init__("realsense_depth_estimator")
+        self.get_logger().info("Node 'realsense_depth_estimator' initialising...")
 
         self.object_subscriber_ = None
         self.depth_distance_pub_ = None
 
         # Connect RealSense depth camera
         self.depth_camera = DepthCamera()
+        self.get_logger().info("Camera connection established")
 
     def subscribe_object_info(self):
         # Create a message subscriber
@@ -91,14 +95,23 @@ def main(args=None):
 
     # Start receive info about detected objects
     depth_estimator_node.subscribe_object_info()
+    
+    # Keep node running
+    try:
+        rclpy.spin(node=depth_estimator_node)
+    # Handle node shutdown
+    except (KeyboardInterrupt, ExternalShutdownException):
+        print("Handling exceptions...")
 
-
-
-
-    rclpy.spin(node=depth_estimator_node)
-
-    # Stop ROS2 communication
-    rclpy.shutdown()
+        # Release camera (depth frame)
+        depth_estimator_node.depth_camera.release()
+        print("Camera depth channel released!")
+        
+        # Shut down node
+        depth_estimator_node.destroy_node()
+        print("Node shut down")
+    print("Exiting...")
+    
 
 if __name__ == '__main__':
     main()
