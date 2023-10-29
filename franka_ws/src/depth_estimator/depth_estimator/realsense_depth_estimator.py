@@ -1,11 +1,13 @@
 #!/usr/bin/env python3
 
 import rclpy
+from rclpy.executors import ExternalShutdownException
 from rclpy.node import Node
 from std_msgs.msg import String
 
+import signal
+import sys
 import re
-import cv2
 from realsense_depth import *
 
 # Define the depth estimator node
@@ -14,11 +16,14 @@ class RealsenseDepthEstimatorNode(Node):
     def __init__(self):
         # Give a node name
         super().__init__("realsense_depth_estimator")
+        self.get_logger().info("Node 'realsense_depth_estimator' initialising...")
+
+        self.object_subscriber_ = None
+        self.depth_distance_pub_ = None
 
         # Connect RealSense depth camera
         self.depth_camera = DepthCamera()
-
-        self.depth_frame = None
+        self.get_logger().info("Camera connection established")
 
     def subscribe_object_info(self):
         # Create a message subscriber
@@ -47,13 +52,18 @@ class RealsenseDepthEstimatorNode(Node):
 
     def init_publisher(self):
         # Create a publisher
+        # Specify topic to publish
         self.depth_distance_pub_ = self.create_publisher(String, "/vision/realsense_depth_distance", qos_profile=10)
 
-        # Create a timer, every 1 sec
-        self.timer_ = self.create_timer(1, self.publish_object_distance_message)
+    def publish_object_distance_message(self, object_class, centre_pos, distance):
+        msg_content = ""
+        msg_content += "Object: {}\n".format(object_class)
+        msg_content += "Centre: ({:.2f}, {:.2f})\n".format(centre_pos[0], centre_pos[1])
+        msg_content += "Distance: {:.2f}mm".format(distance)
 
-    def publish_object_distance_message(self):
-        pass
+        msg_str = String()
+        msg_str.data = msg_content
+        self.depth_distance_pub_.publish(msg=msg_str)
 
     def estimate_distance(self, object_class, top_left_coordinates, bot_right_coordinates):
         # Calculate the centre coordinates of objects
@@ -67,7 +77,11 @@ class RealsenseDepthEstimatorNode(Node):
 
         # Ignore invalid estimates
         if distance != 0:
-            self.get_logger().info("\nObject: {}\nCentre: {}\nDistance: {}mm\n".format(object_class, (x,y), distance))
+            # self.get_logger().info("\nObject: {}\nCentre: {}\nDistance: {}mm\n".format(object_class, (x,y), distance))
+            self.publish_object_distance_message(object_class, (x,y), distance)
+
+            # Create a timer, every 1 sec
+            # self.timer_ = self.create_timer(1, self.publish_object_distance_message(object_class, (x,y), distance))
 
 def main(args=None):
     # Initialise ROS2 communication
@@ -77,15 +91,27 @@ def main(args=None):
     # Establish connection to depth camera
     depth_estimator_node = RealsenseDepthEstimatorNode()
 
+    depth_estimator_node.init_publisher()
+
+    # Start receive info about detected objects
     depth_estimator_node.subscribe_object_info()
+    
+    # Keep node running
+    try:
+        rclpy.spin(node=depth_estimator_node)
+    # Handle node shutdown
+    except (KeyboardInterrupt, ExternalShutdownException):
+        print("Handling exceptions...")
 
-
-
-
-    rclpy.spin(node=depth_estimator_node)
-
-    # Stop ROS2 communication
-    rclpy.shutdown()
+        # Release camera (depth frame)
+        depth_estimator_node.depth_camera.release()
+        print("Camera depth channel released!")
+        
+        # Shut down node
+        depth_estimator_node.destroy_node()
+        print("Node shut down")
+    print("Exiting...")
+    
 
 if __name__ == '__main__':
     main()

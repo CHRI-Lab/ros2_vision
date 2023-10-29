@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 
 import rclpy
+from rclpy.executors import ExternalShutdownException
 from rclpy.node import Node
 from std_msgs.msg import String
 from ultralytics import YOLO
@@ -13,6 +14,7 @@ class YoloDetectorNode(Node):
     def __init__(self):
         # Give a node name
         super().__init__("yolo_detector")
+        self.get_logger().info("Node 'yolo_detector' initialising...")
 
         # Load pretrained YOLOv8 model
         # The yolov8m model may be too computational intensive
@@ -24,7 +26,7 @@ class YoloDetectorNode(Node):
     def detect_objects(self):
         # Define streaming source (e.g. camera dev number)
         # May need to try out for different ports
-        camera_dev = '5'
+        camera_dev = '4'
 
         # Return a list of Results objects
         self.results_ = self.yolo_model_(source=camera_dev, 
@@ -48,8 +50,7 @@ class YoloDetectorNode(Node):
             class_ids = result.boxes.cls
             box_coordinates = result.boxes.xyxy
 
-
-            # print("=============\n")
+            # Publish every detected object
             for i in range(len(class_ids)):
                 class_id = class_ids[i]
                 coordinates = box_coordinates[i]
@@ -80,11 +81,19 @@ def main(args=None):
     # Publish messages of detected objects
     yolo_node.init_publisher()
     yolo_node.publish_objects_message()
-
-    rclpy.spin(node=yolo_node)
-
-    # Stop ROS2 communication
-    rclpy.shutdown()
+    
+    # Keep node running
+    try:
+        rclpy.spin(node=yolo_node)
+    # Handle node shutdown
+    except (KeyboardInterrupt, ExternalShutdownException):
+        print("Handling exceptions...")
+        
+        # Shut down node
+        yolo_node.destroy_node()
+        rclpy.shutdown()
+        print("Node shut down")
+    print("Exiting...")
 
 if __name__ == '__main__':
     main()
