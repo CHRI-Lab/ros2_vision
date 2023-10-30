@@ -9,6 +9,32 @@ Please install Ultralytics via pip to get started.
 $ pip install ultralytics
 ```
 
+## Usage
+1. Setting up the Workspace
+    - Navigate to the ROS2 workspace
+      ```shell
+      cd franka_ws
+      ```
+    - Build packages
+      ```shell
+      colcon build --symlink-install
+      ```
+    - Source the setup file
+      ```shell
+      source install/setup.bash
+      ```
+2. Launch the `yolo_detector` node
+    - After successfully built, `yolo_detector` ROS2 node can be launched via the following command:
+      ```shell
+      ros2 run object_detector yolo_detector
+      ```
+3. Check detected objects
+    - A window will show the RGB camera view with **object label**, and **confidence rate** around the boundary of detected objects.
+    - The relevant information extracted from the objects detected can also be checked by inspecting the `/vision/yolo_object` topic with the command:
+      ```shell
+      ros2 topic echo /vision/yolo_object
+      ```
+
 ## Messages Published to Topic
 The following command will list all active ROS 2 topics:
 ```
@@ -56,6 +82,19 @@ While the YOLO is configured to show the real-time object detection results on s
       ```
     - Find the correct video input device. If use Intel RealSense depth camera as video input, please find the corresponding RGB frame channel (usually the 5th one as highlighted below, but reference number could be different).
     - Change the device reference number predefined in `yolo_detector.py` file
+      ```python
+      def detect_objects(self):
+        # Define streaming source (e.g. camera dev number)
+        # May need to try out for different ports
+        camera_dev = '4'
+    
+        # Return a list of Results objects
+        self.results_ = self.yolo_model_(source=camera_dev,
+                        show=True,
+                        boxes=True,
+                        stream=True
+                    )
+      ```
 
 ### Future Improvements
 1. Try to gracefully shutdown the node by correctly handling exceptions like force quit.
