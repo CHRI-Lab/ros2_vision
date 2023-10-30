@@ -163,6 +163,29 @@ The original model file was downloaded and rescaled to match the actual dimensio
   <img src="./docs/images/camera_mounted.jpg" alt="Camera mounted preview" width="500" />
 </p>
 
+
+## File Structure
+```
+.
+├── docs
+│   ├── camera_mounting
+│   └── images
+├── franka_ws
+│   ├── build
+│   ├── install
+│   ├── log
+│   └── src
+│       ├── depth_estimator
+│       └── object_detector
+└── openpose_ws
+    ├── build
+    ├── install
+    ├── log
+    └── src
+        └── openpose_controller
+```
+
+
 ## Contributors
 
 Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
