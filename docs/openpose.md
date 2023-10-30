@@ -5,7 +5,7 @@
 The openpose_node node under the openpose_controller package will be able to detect the posture of the human body. It is also able to detect the keypoints of a person's hands with the --hand flag, and facial keypoints with the --face flag. 
 
 ## Prerequisites
-The installation of CUDA (11.7) and cuDNN (8.5.0) are reuqired for gpu acceleration of openpose. All the openpose prerequisites can be found here: https://github.com/CMU-Perceptual-Computing-Lab/openpose/blob/master/doc/installation/1_prerequisites.md. 
+The installation of CUDA (11.7) and cuDNN (8.5.0) are required for gpu acceleration of openpose. All the openpose prerequisites can be found here: https://github.com/CMU-Perceptual-Computing-Lab/openpose/blob/master/doc/installation/1_prerequisites.md. 
 
 GStreamer and opencv also needs to be installed. GStreamer instructions are found here: https://gstreamer.freedesktop.org/documentation/installing/on-linux.html?gi-language=c.
 For opencv, run the commands found in the prerequisite page of openpose above, except for the command: 
