@@ -44,7 +44,7 @@ $ pip install pyrealsense
       ```
 
 <p align="center">
-  <img src="./images/obj_detec/yolo_detector_running.png" alt="Screenshot of yolo_detector running" width="600" />
+  <img src="./images/distance_est/depth_estimator_running.png" alt="Screenshot of realsense_depth_estimator running" width="600" />
 </p>
 
 
@@ -64,7 +64,7 @@ The returned depth frame can be accessed once the connection to camera has estab
 The distance to the object centre can be simply extracted by accessing the depth value stored in camera depth frame at corresponding index (same as pixel coordinates).
 
 <p align="center">
-  <img src="./images/obj_detec/yolo_detector_running.png" alt="Screenshot of yolo_detector running" width="600" />
+  <img src="./images/distance_est/d435fv2_hardware.png" alt="Intel RealSense Camera D435" width="600" />
 </p>
 
 ## Messages Published to Topic
@@ -89,7 +89,7 @@ We can launch `rqt_graph` to verify that the `realsense_depth_estimator` node is
 
 
 <p align="center">
-  <img src="./images/obj_detec/yolo_detector_running2.png" alt="Screenshot of rqt_graph" width="600" />
+  <img src="./images/distance_est/rqt_graph.png" alt="Screenshot of rqt_graph" width="600" />
 </p>
 
 ## Release Notes
@@ -101,7 +101,7 @@ We can launch `rqt_graph` to verify that the `realsense_depth_estimator` node is
 ### Known Issues
 1. Can't reconnect camera depth channel and receive depth frames if RGB channel didn't properly released from the last session.
     <p align="center">
-      <img src="./images/obj_detec/connection_error.png" alt="Connection Error" width="600" />
+      <img src="./images/distance_est/wait_error.png" alt="Frame Error" width="600" />
     </p>
 
     - **Consequence:** Raise error `"RuntimeError: Frame didn't arrive within 5000"` 
