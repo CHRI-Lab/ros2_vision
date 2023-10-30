@@ -8,9 +8,12 @@
 The aim of this repo is to develop the visual components of the AI-RedBack project. The code should allow the robot to perceive and interpret its surroundings through cameras, enabling it to make informed decisions, through the identification of objects and human gestures.
 
 ## ROS2 Nodes
-There are two ROS nodes in this repository:
-1. 3D object detection
-2. Human posture detection (hand gesture, gaze)
+There are three ROS nodes in this repository:
+|                   **Feature**                  	|        **ROS2 Node**        	|
+|:----------------------------------------------:	|:---------------------------:	|
+| 2D Object Detection<br>(YOLO Object Detection) 	| _yolo_detector_             	|
+| 3D Object Detection<br>(Distance Estimation)   	| _realsense_depth_estimator_ 	|
+| Human Posture Recognition<br>Face Tracking     	| _openpose_node_             	|
 
 ## Installation
 <details>
