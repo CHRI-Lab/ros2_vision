@@ -49,7 +49,20 @@ ultralytics >= 8.0
 
 <details>
   <summary>
-    Step 4: Install required packages for human posture detection
+    Step 4: Install required packages for distance estimation
+  </summary>
+  
+- Please use `pip` to install the following packages
+```
+pyrealsense >= 2.54
+```
+- Please note that `pyrealsense` **doesn't** support Linux with ARM architecture
+    
+</details>
+
+<details>
+  <summary>
+    Step 5: Install required packages for human posture detection
   </summary>
 
 - Please install the following packages
@@ -112,6 +125,14 @@ Details about `yolo_detector` can be found in [docs](./docs/yolo_object_detector
 <p align="center">
   <img src="./docs/images/yolo_detector_running2.jpg" alt="Screenshot of yolo_detector running" width="600" />
 </p>
+
+
+### Run realsense_depth_estimator node
+Similarly, `realsense_depth_estimator` ROS2 node can be launched via the following command:
+```
+ros2 run depth_estimator realsense_depth_estimator
+```
+Details about `realsense_depth_estimator` can be found in [docs](./docs/realsense_depth_estimator.md)
 
 
 ### Run openpose
