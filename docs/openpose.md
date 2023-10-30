@@ -38,9 +38,9 @@ $ sudo apt-get install python3-opencv
 3. Check detected objects 
     - A window will show the camera with keypoints attached 
     - The keypoint values can also be inspected through the topics:
-      - /vision/face_keypoints 
-      - /vision/hand_keypoints 
-      - /vision/body_keypoints
+      - `/vision/face_keypoints`
+      - `/vision/hand_keypoints`
+      - `/vision/body_keypoints`
     
     - The topics can be run with the commands: 
       ```shell
@@ -49,9 +49,9 @@ $ sudo apt-get install python3-opencv
 
 ## Published Topic Information
 - Individual keypoints within the message will include:
-  - x coordinate
-  - y coordinate
-  - confidence score
+  - X coordinate
+  - Y coordinate
+  - Confidence score
 - Format for face and hand keypoints can be found here: https://github.com/ArtificialShane/OpenPose/blob/master/doc/output.md
 - Format for body keypoints can be found underneath "Keypoint Ordering in C++/Python": https://cmu-perceptual-computing-lab.github.io/openpose/web/html/doc/md_doc_02_output.html
 
@@ -91,7 +91,7 @@ $ sudo apt-get install python3-opencv
 
 
 
-## Examples:
+## Examples
 
 <p align="center">
   <img src="./images/openpose_1.png" alt="Hand and face keypoint detection" width="600" />
