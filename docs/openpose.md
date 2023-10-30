@@ -12,7 +12,7 @@ For opencv, run the commands found in the prerequisite page of openpose above, e
 ```
 $ sudo pip install numpy opencv-python
 ```
-This will build a version of opencv that is nto compatible with gstreamer. Instead run:
+This will build a version of opencv that is not compatible with GStreamer. Instead run:
 ```
 $ sudo apt-get install python3-opencv
 ```
@@ -88,8 +88,6 @@ $ sudo apt-get install python3-opencv
 ## Future Improvements
 1. Attempt to separate the openpose wrapper and the camera into two separate nodes, and have communication using publishers and subscribers
 2. Attempt to publish the messages in an ndarray format, rather than the current string format
-
-
 
 
 
