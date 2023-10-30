@@ -126,7 +126,7 @@ ros2 run object_detector yolo_detector
 Details about `yolo_detector` can be found in [docs](./docs/yolo_object_detector.md)
 
 <p align="center">
-  <img src="./docs/images/yolo_detector_running2.jpg" alt="Screenshot of yolo_detector running" width="600" />
+  <img src="./docs/images/obj_detec/yolo_detector_running.png" alt="Screenshot of yolo_detector running" width="600" />
 </p>
 
 

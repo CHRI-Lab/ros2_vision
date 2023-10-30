@@ -35,6 +35,10 @@ $ pip install ultralytics
       ros2 topic echo /vision/yolo_object
       ```
 
+<p align="center">
+  <img src="./images/obj_detec/yolo_detector_running.png" alt="Screenshot of yolo_detector running" width="600" />
+</p>
+
 ## Messages Published to Topic
 The following command will list all active ROS 2 topics:
 ```
@@ -57,7 +61,7 @@ While the YOLO is configured to show the real-time object detection results on s
 
 
 <p align="center">
-  <img src="./images/yolo_detector_running.png" alt="Screenshot of yolo_detector running" width="600" />
+  <img src="./images/obj_detec/yolo_detector_running2.png" alt="Screenshot of rqt_graph" width="600" />
 </p>
 
 ## Release Notes
@@ -70,7 +74,11 @@ While the YOLO is configured to show the real-time object detection results on s
 1. Can't gracefully shutdown the node when force quit with `Ctrl + C`
     - **Reason:** Can't break the streaming object detection properly unless modify source code of YOLO
 2. Can't disconnect camera channel properly when using Intel RealSense depth camera as video input and the node was force quit
-    - **Consequence:** Raise error "ConnectionError: ... failed to read images from ..." 
+    <p align="center">
+      <img src="./images/obj_detec/connection_error.png" alt="Connection Error" width="600" />
+    </p>
+
+    - **Consequence:** Raise error `"ConnectionError: ... failed to read images from ..."`
     - **Reason:** Force quit the node will leave the device file occupied (by YOLO streaming loop), connection to camera can't be re-established
     - **Workaround:** Re-plug the camera connection cable to reset camera connection
 
@@ -81,6 +89,10 @@ While the YOLO is configured to show the real-time object detection results on s
       v4l2-ctl --list-devices
       ```
     - Find the correct video input device. If use Intel RealSense depth camera as video input, please find the corresponding RGB frame channel (usually the 5th one as highlighted below, but reference number could be different).
+    <p align="center">
+      <img src="./images/obj_detec/device_list.png" alt="List all devices" width="400" />
+    </p>
+
     - Change the device reference number predefined in `yolo_detector.py` file
       ```python
       def detect_objects(self):
