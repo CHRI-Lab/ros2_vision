@@ -1,43 +1,99 @@
-# Openpose
+# Posture Detection
 
-## Openpose link: https://github.com/CMU-Perceptual-Computing-Lab/openpose
 
-## Running Openpose
-./build/examples/openpose/openpose.bin
+## Overview
+The openpose_node node under the openpose_controller package will be able to detect the posture of the human body. It is also able to detect the keypoints of a person's hands with the --hand flag, and facial keypoints with the --face flag. 
 
 ## Prerequisites
+The installation of CUDA (11.7) and cuDNN (8.5.0) are reuqired for gpu acceleration of openpose. All the openpose prerequisites can be found here: https://github.com/CMU-Perceptual-Computing-Lab/openpose/blob/master/doc/installation/1_prerequisites.md. 
 
-CMake GUI: sudo apt-get install cmake-qt-gui      
-Nvidia GPU: Update to latest version      
-CUDA: Download from website: https://developer.nvidia.com/cuda-11-7-1-download-archive    
-cuDNN: Download from website: https://developer.nvidia.com/cudnn    
-Caffe: sudo bash ./scripts/ubuntu/install_deps.sh     
-OpenCV: sudo apt-get install libopencv-dev     
-### Make prerequisites
-- CMake config: sudo apt install protobuf-compiler libgoogle-glog-dev
-- Openpose: sudo apt install libboost-all-dev libhdf5-dev libatlas-base-dev
-### Python prerequisites
-- sudo apt-get install python3-dev
-- sudo pip3 install numpy opencv-python
+GStreamer and opencv also needs to be installed. GStreamer instructions are found here: https://gstreamer.freedesktop.org/documentation/installing/on-linux.html?gi-language=c.
+For opencv, run the commands found in the prerequisite page of openpose above, except for the command: 
+```
+$ sudo pip install numpy opencv-python
+```
+This will build a version of opencv that is nto compatible with gstreamer. Instead run:
+```
+$ sudo apt-get install python3-opencv
+```
+## Usage
+1. Setting up the Workspace  
+    - Navigate to the ROS2 workspace
+      ```shell
+      cd openpose_ws
+      ``` 
+    - Build packages
+      ```shell
+      colcon build --symlink-install 
+      ```
+    - Source the setup file
+      ```shell 
+      source install/setup.bash
+      ```
+2. Launch the `openpose_node` node 
+    - After successfully built, `openpose_node` ROS2 node can be launched via the following command: 
+      ```shell
+      ros2 run openpose_controller openpose_node 
+      ```
+3. Check detected objects 
+    - A window will show the camera with keypoints attached 
+    - The keypoint values can also be inspected through the topics:
+      - /vision/face_keypoints 
+      - /vision/hand_keypoints 
+      - /vision/body_keypoints
+    
+    - The topics can be run with the commands: 
+      ```shell
+      ros2 topic echo /vision/<face/hand/body>_keypoints
+      ```
+
+## Published Topic Information
+- Individual keypoints within the message will include:
+  - x coordinate
+  - y coordinate
+  - confidence score
+- Format for face and hand keypoints can be found here: https://github.com/ArtificialShane/OpenPose/blob/master/doc/output.md
+- Format for body keypoints can be found underneath "Keypoint Ordering in C++/Python": https://cmu-perceptual-computing-lab.github.io/openpose/web/html/doc/md_doc_02_output.html
+
+## Release Notes
+
+### Features
+- Integrate Openpose functionality within a ROS2 node
+- Display keypoints visually on top of camera feed
+- Publish keypoints towards ROS2 topics
+
+### Known Issues
+- cudnn version currently has an issue, and is not used:
+  ```shell
+  status == CUDNN_STATUS_SUCCESS (3 vs. 0) CUDNN_STATUS_BAD_PARAM
+  ```
+### Notes
+- Additional instructions if using WSL2:
+    -  Need to install usbipd-win and rebuild the linux kernel in order to connect to the camera
+        - Link: https://learn.microsoft.com/en-us/windows/wsl/connect-usb
+    -  Find camera id and attach with commands in powershell
+       ```shell
+       usbipd wsl list
+       usbipd wsl attach --busid <camera id>
+       ```
+    - Confirm camera attachment and give permissions to camera with:
+      ```shell
+      lsusb 
+      ls -al /dev/video*
+      sudo chmod 777 /dev/video0
+      ```
+    - Change the number 0 to the appropriate index
+  
+  
+## Future Improvements
+1. Attempt to separate the openpose wrapper and the camera into two separate nodes, and have communication using publishers and subscribers
+2. Attempt to publish the messages in an ndarray format, rather than the current string format
 
 
-## Openpose Flags
-### Additional keypoints:
---face: Adds facial keypoints  
---hand: Adds hand keypoints  
 
 
-### Input:
---video <path_to_video>: Runs openpose on a video  
---image_dir <path_to_folder>: Runs openpose on all images within a folder  
---camera <camera_number>: Selects which camera to run, if --video and --image_dir flags are not used  
 
-### Output:
---write_video <path_to_video>: Records video to the path specified  
---write_images <path_to_folder>: Records images in the folder path specified  
-
-
-### Examples:
+## Examples:
 
 <p align="center">
   <img src="./images/openpose_1.png" alt="Hand and face keypoint detection" width="600" />
