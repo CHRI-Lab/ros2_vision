@@ -91,19 +91,9 @@ $ sudo apt-get install python3-opencv
 
 
 
-## Examples
+## Example
 
-<p align="center">
+<figure>
   <img src="./images/openpose_1.png" alt="Hand and face keypoint detection" width="600" />
-  <figcaption>Openpose hand and face keypoint detection</figcaption>
-</p>
+</figure>
 
-<p align="center">
-  <img src="./images/openpose_2.png" alt="Finger keypoint estimation" width="600" />
-  <figcaption>Openpose estimation of finger keypoints</figcaption>
-</p>
-
-<p align="center">
-  <img src="./images/openpose_3.png" alt="Sideways face keypoint detection" width="600" />
-  <figcaption>Openpose face keypoint detection (sideview)</figcaption>
-</p>
