@@ -8,9 +8,12 @@
 The aim of this repo is to develop the visual components of the AI-RedBack project. The code should allow the robot to perceive and interpret its surroundings through cameras, enabling it to make informed decisions, through the identification of objects and human gestures.
 
 ## ROS2 Nodes
-There are two ROS nodes in this repository:
-1. 3D object detection
-2. Human posture detection (hand gesture, gaze)
+There are three ROS nodes in this repository:
+|                   **Feature**                  	|        **ROS2 Node**        	|
+|:----------------------------------------------:	|:---------------------------:	|
+| 2D Object Detection<br>(YOLO Object Detection) 	| _yolo_detector_             	|
+| 3D Object Detection<br>(Distance Estimation)   	| _realsense_depth_estimator_ 	|
+| Human Posture Recognition<br>Face Tracking     	| _openpose_node_             	|
 
 ## Installation
 <details>
@@ -49,7 +52,20 @@ ultralytics >= 8.0
 
 <details>
   <summary>
-    Step 4: Install required packages for human posture detection
+    Step 4: Install required packages for distance estimation
+  </summary>
+  
+- Please use `pip` to install the following packages
+```
+pyrealsense >= 2.54
+```
+- Please note that `pyrealsense` **doesn't** support Linux with ARM architecture
+    
+</details>
+
+<details>
+  <summary>
+    Step 5: Install required packages for human posture detection
   </summary>
 
 - Please install the following packages
@@ -110,7 +126,19 @@ ros2 run object_detector yolo_detector
 Details about `yolo_detector` can be found in [docs](./docs/yolo_object_detector.md)
 
 <p align="center">
-  <img src="./docs/images/yolo_detector_running2.jpg" alt="Screenshot of yolo_detector running" width="600" />
+  <img src="./docs/images/obj_detec/yolo_detector_running.png" alt="Screenshot of yolo_detector running" width="600" />
+</p>
+
+
+### Run realsense_depth_estimator node
+Similarly, `realsense_depth_estimator` ROS2 node can be launched via the following command:
+```
+ros2 run depth_estimator realsense_depth_estimator
+```
+Details about `realsense_depth_estimator` can be found in [docs](./docs/realsense_depth_estimator.md)
+
+<p align="center">
+  <img src="./docs/images/distance_est/depth_estimator_running.png" alt="Screenshot of realsense_depth_estimator running" width="600" />
 </p>
 
 
@@ -122,7 +150,40 @@ After being built, openpose can be run with the following command:
 Details about `openpose` can be found in [docs](./docs/openpose.md)
 
 
+## Camera Mounting
+As mentioned on the page [Depth Camera Mounting Analysis](./docs/camera_mounting/camera_mounting_analysis.md), a custom 3D-printed model needs to be designed and built to mount the depth camera on the end-effector of the robotic arm. We found there was [another team](https://visp-doc.inria.fr/doxygen/visp-daily/tutorial-franka-pbvs.html) working with computer vision solutions using both Franka Emika robotic arm and Intel Realsense depth camera released the STL file of the CAD model of a 3D printed part "that allows to attach an Intel RealSense D435 camera to the Panda flange".
 
+<p align="center">
+  <img src="./docs/images/model_blender.png" alt="Model file in Blender" width="600" />
+</p>
+
+The original model file was downloaded and rescaled to match the actual dimensions of the depth camera. The modified model file has been uploaded [here](./docs/camera_mounting/franka-rs-D435-camera-holder(modified).stl). The process of analysing and building the 3D printed mounting component has been documented in detail in this [PDF](./docs/camera_mounting/3D%20Printed%20Camera%20Mounting%20Part.pdf). This camera mounting model can be built using a 3D printer in the lab with the configurations specified in the [documentation](./docs/camera_mounting/3D%20Printed%20Camera%20Mounting%20Part.pdf).
+
+<p align="center">
+  <img src="./docs/images/camera_mounted.jpg" alt="Camera mounted preview" width="500" />
+</p>
+
+
+## File Structure
+```
+.
+├── docs
+│   ├── camera_mounting
+│   └── images
+├── franka_ws
+│   ├── build
+│   ├── install
+│   ├── log
+│   └── src
+│       ├── depth_estimator
+│       └── object_detector
+└── openpose_ws
+    ├── build
+    ├── install
+    ├── log
+    └── src
+        └── openpose_controller
+```
 
 
 ## Contributors
