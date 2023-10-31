@@ -1,3 +1,0 @@
-[console_scripts]
-openpose_node = openpose_controller.openpose_node:main
-
