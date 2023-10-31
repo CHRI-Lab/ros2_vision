@@ -83,7 +83,7 @@ $ sudo apt-get install python3-opencv
       sudo chmod 777 /dev/video0
       ```
     - Change the number 0 to the appropriate index
-    - To look at openpose flags, consult: https://github.com/CMU-Perceptual-Computing-Lab/openpose/blob/master/include/openpose/flags.hpp
+- To look at openpose flags, consult: https://github.com/CMU-Perceptual-Computing-Lab/openpose/blob/master/include/openpose/flags.hpp
   
   
 ## Future Improvements
