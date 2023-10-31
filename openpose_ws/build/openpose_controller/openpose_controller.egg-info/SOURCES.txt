@@ -9,7 +9,12 @@ setup.py
 ../../build/openpose_controller/openpose_controller.egg-info/top_level.txt
 ../../build/openpose_controller/openpose_controller.egg-info/zip-safe
 openpose_controller/__init__.py
+openpose_controller/openpose_node backup 2.py
+openpose_controller/openpose_node backup 3.py
+openpose_controller/openpose_node backup.py
+openpose_controller/openpose_node wrapper backup.py
 openpose_controller/openpose_node.py
+openpose_controller/openpose_node_video.py
 openpose_controller.egg-info/PKG-INFO
 openpose_controller.egg-info/SOURCES.txt
 openpose_controller.egg-info/dependency_links.txt

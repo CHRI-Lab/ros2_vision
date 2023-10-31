@@ -1,0 +1,17 @@
+[1.943s] Invoking command in '/home/wagw/openpose_ws/build/openpose_controller': PYTHONPATH=/home/wagw/openpose_ws/build/openpose_controller/prefix_override:/home/wagw/openpose_ws/install/openpose_controller/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py develop --editable --build-directory /home/wagw/openpose_ws/build/openpose_controller/build --no-deps install_data
+[2.384s] running develop
+[2.744s] running egg_info
+[2.744s] writing openpose_controller.egg-info/PKG-INFO
+[2.745s] writing dependency_links to openpose_controller.egg-info/dependency_links.txt
+[2.745s] writing entry points to openpose_controller.egg-info/entry_points.txt
+[2.745s] writing requirements to openpose_controller.egg-info/requires.txt
+[2.746s] writing top-level names to openpose_controller.egg-info/top_level.txt
+[2.748s] reading manifest file 'openpose_controller.egg-info/SOURCES.txt'
+[2.750s] writing manifest file 'openpose_controller.egg-info/SOURCES.txt'
+[2.753s] running build_ext
+[2.753s] Creating /home/wagw/openpose_ws/install/openpose_controller/lib/python3.10/site-packages/openpose-controller.egg-link (link to .)
+[2.755s] Installing openpose_node script to /home/wagw/openpose_ws/install/openpose_controller/lib/openpose_controller
+[2.755s] 
+[2.756s] Installed /home/wagw/openpose_ws/build/openpose_controller
+[2.756s] running install_data
+[2.814s] Invoked command in '/home/wagw/openpose_ws/build/openpose_controller' returned '0': PYTHONPATH=/home/wagw/openpose_ws/build/openpose_controller/prefix_override:/home/wagw/openpose_ws/install/openpose_controller/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py develop --editable --build-directory /home/wagw/openpose_ws/build/openpose_controller/build --no-deps install_data
