@@ -1,0 +1,42 @@
+[1.175s] Invoking command in '/home/wagw/openpose_ws/build/openpose_controller': PYTHONPATH=/home/wagw/openpose_ws/build/openpose_controller/prefix_override:/home/wagw/openpose_ws/install/openpose_controller/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py develop --uninstall --editable --build-directory /home/wagw/openpose_ws/build/openpose_controller/build
+[1.443s] running develop
+[1.627s] Removing /home/wagw/openpose_ws/install/openpose_controller/lib/python3.10/site-packages/openpose-controller.egg-link (link to .)
+[1.654s] Invoked command in '/home/wagw/openpose_ws/build/openpose_controller' returned '0': PYTHONPATH=/home/wagw/openpose_ws/build/openpose_controller/prefix_override:/home/wagw/openpose_ws/install/openpose_controller/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py develop --uninstall --editable --build-directory /home/wagw/openpose_ws/build/openpose_controller/build
+[1.655s] Invoking command in '/home/wagw/openpose_ws/src/openpose_controller': PYTHONPATH=/home/wagw/openpose_ws/build/openpose_controller/prefix_override:/home/wagw/openpose_ws/install/openpose_controller/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../../build/openpose_controller build --build-base /home/wagw/openpose_ws/build/openpose_controller/build install --record /home/wagw/openpose_ws/build/openpose_controller/install.log --single-version-externally-managed
+[1.889s] running egg_info
+[1.890s] writing ../../build/openpose_controller/openpose_controller.egg-info/PKG-INFO
+[1.890s] writing dependency_links to ../../build/openpose_controller/openpose_controller.egg-info/dependency_links.txt
+[1.891s] writing entry points to ../../build/openpose_controller/openpose_controller.egg-info/entry_points.txt
+[1.891s] writing requirements to ../../build/openpose_controller/openpose_controller.egg-info/requires.txt
+[1.891s] writing top-level names to ../../build/openpose_controller/openpose_controller.egg-info/top_level.txt
+[1.892s] reading manifest file '../../build/openpose_controller/openpose_controller.egg-info/SOURCES.txt'
+[1.893s] writing manifest file '../../build/openpose_controller/openpose_controller.egg-info/SOURCES.txt'
+[1.893s] running build
+[1.893s] running build_py
+[1.894s] copying openpose_controller/openpose_node backup 3.py -> /home/wagw/openpose_ws/build/openpose_controller/build/lib/openpose_controller
+[1.894s] copying openpose_controller/openpose_node backup 2.py -> /home/wagw/openpose_ws/build/openpose_controller/build/lib/openpose_controller
+[1.894s] copying openpose_controller/openpose_node.py -> /home/wagw/openpose_ws/build/openpose_controller/build/lib/openpose_controller
+[1.894s] running install
+[1.895s] running install_lib
+[1.895s] creating /home/wagw/openpose_ws/install/openpose_controller/lib/python3.10/site-packages/openpose_controller
+[1.895s] copying /home/wagw/openpose_ws/build/openpose_controller/build/lib/openpose_controller/openpose_node_video.py -> /home/wagw/openpose_ws/install/openpose_controller/lib/python3.10/site-packages/openpose_controller
+[1.896s] copying /home/wagw/openpose_ws/build/openpose_controller/build/lib/openpose_controller/openpose_node backup.py -> /home/wagw/openpose_ws/install/openpose_controller/lib/python3.10/site-packages/openpose_controller
+[1.896s] copying /home/wagw/openpose_ws/build/openpose_controller/build/lib/openpose_controller/openpose_node backup 3.py -> /home/wagw/openpose_ws/install/openpose_controller/lib/python3.10/site-packages/openpose_controller
+[1.896s] copying /home/wagw/openpose_ws/build/openpose_controller/build/lib/openpose_controller/openpose_node backup 2.py -> /home/wagw/openpose_ws/install/openpose_controller/lib/python3.10/site-packages/openpose_controller
+[1.896s] copying /home/wagw/openpose_ws/build/openpose_controller/build/lib/openpose_controller/openpose_node wrapper backup.py -> /home/wagw/openpose_ws/install/openpose_controller/lib/python3.10/site-packages/openpose_controller
+[1.896s] copying /home/wagw/openpose_ws/build/openpose_controller/build/lib/openpose_controller/openpose_node.py -> /home/wagw/openpose_ws/install/openpose_controller/lib/python3.10/site-packages/openpose_controller
+[1.896s] copying /home/wagw/openpose_ws/build/openpose_controller/build/lib/openpose_controller/__init__.py -> /home/wagw/openpose_ws/install/openpose_controller/lib/python3.10/site-packages/openpose_controller
+[1.897s] byte-compiling /home/wagw/openpose_ws/install/openpose_controller/lib/python3.10/site-packages/openpose_controller/openpose_node_video.py to openpose_node_video.cpython-310.pyc
+[1.897s] byte-compiling /home/wagw/openpose_ws/install/openpose_controller/lib/python3.10/site-packages/openpose_controller/openpose_node backup.py to openpose_node backup.cpython-310.pyc
+[1.898s] byte-compiling /home/wagw/openpose_ws/install/openpose_controller/lib/python3.10/site-packages/openpose_controller/openpose_node backup 3.py to openpose_node backup 3.cpython-310.pyc
+[1.899s] byte-compiling /home/wagw/openpose_ws/install/openpose_controller/lib/python3.10/site-packages/openpose_controller/openpose_node backup 2.py to openpose_node backup 2.cpython-310.pyc
+[1.899s] byte-compiling /home/wagw/openpose_ws/install/openpose_controller/lib/python3.10/site-packages/openpose_controller/openpose_node wrapper backup.py to openpose_node wrapper backup.cpython-310.pyc
+[1.900s] byte-compiling /home/wagw/openpose_ws/install/openpose_controller/lib/python3.10/site-packages/openpose_controller/openpose_node.py to openpose_node.cpython-310.pyc
+[1.900s] byte-compiling /home/wagw/openpose_ws/install/openpose_controller/lib/python3.10/site-packages/openpose_controller/__init__.py to __init__.cpython-310.pyc
+[1.901s] running install_data
+[1.901s] running install_egg_info
+[1.902s] Copying ../../build/openpose_controller/openpose_controller.egg-info to /home/wagw/openpose_ws/install/openpose_controller/lib/python3.10/site-packages/openpose_controller-0.0.0-py3.10.egg-info
+[1.904s] running install_scripts
+[1.921s] Installing openpose_node script to /home/wagw/openpose_ws/install/openpose_controller/lib/openpose_controller
+[1.922s] writing list of installed files to '/home/wagw/openpose_ws/build/openpose_controller/install.log'
+[1.942s] Invoked command in '/home/wagw/openpose_ws/src/openpose_controller' returned '0': PYTHONPATH=/home/wagw/openpose_ws/build/openpose_controller/prefix_override:/home/wagw/openpose_ws/install/openpose_controller/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../../build/openpose_controller build --build-base /home/wagw/openpose_ws/build/openpose_controller/build install --record /home/wagw/openpose_ws/build/openpose_controller/install.log --single-version-externally-managed
