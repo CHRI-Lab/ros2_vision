@@ -9,9 +9,6 @@ RUN pip3 install --no-cache-dir \
     numpy \
     opencv-python
 
-# Clone the OpenPose repository
-RUN git clone https://github.com/CMU-Perceptual-Computing-Lab/openpose.git
-WORKDIR /workspace/openpose
 
 # Update and init submodules
 RUN git submodule update --init --recursive --remote
