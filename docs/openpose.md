@@ -83,7 +83,13 @@ $ sudo apt-get install python3-opencv
       sudo chmod 777 /dev/video0
       ```
     - Change the number 0 to the appropriate index
-- To look at openpose flags, consult: https://github.com/CMU-Perceptual-Computing-Lab/openpose/blob/master/include/openpose/flags.hpp
+ -  To look at openpose flags, consult: https://github.com/CMU-Perceptual-Computing-Lab/openpose/blob/master/include/openpose/flags.hpp
+ -  Models for openpose can be downloaded here: https://github.com/CMU-Perceptual-Computing-Lab/openpose/issues/1602
+    - Insert models downloaded under openpose/models/
+        - face: pose_iter_116000.caffemodel
+        - hands: pose_iter_102000.caffemodel
+        - pose/body_25: pose_iter_584000.caffemodel
+
   
   
 ## Future Improvements
