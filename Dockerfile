@@ -24,6 +24,7 @@ RUN git submodule update --init --recursive --remote
 
 
 # Set the default command to run when starting the container
+COPY ./franka_ws /workspace/franka_ws
 RUN echo "source /franka_ws/install/setup.bash" >> ~/.bashrc
 
 # Expose any ports the application uses
